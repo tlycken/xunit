@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>99.99.99-dev</VersionPrefix>
+    <TargetFramework>net45</TargetFramework>
+    <DefineConstants>$(DefineConstants);XUNIT_FRAMEWORK</DefineConstants>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <AssemblyName>test.xunit.execution</AssemblyName>
+    <PackageId>test.xunit.execution</PackageId>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\common\AssemblyExtensions.cs;..\..\src\common\ExecutionHelper.cs;..\..\src\common\Guard.cs;..\..\src\common\NewReflectionExtensions.cs;..\..\src\common\SerializationHelper.cs;..\..\src\common\TestOptionsNames.cs;..\..\src\common\XunitSerializationInfo.cs;..\..\src\xunit.assert\Asserts\Sdk\ArgumentFormatter.cs;..\GlobalTestAssemblyInfo.cs" Exclude="bin\**;obj\**;**\*.xproj;packages\**" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test.utility\test.utility.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+</Project>

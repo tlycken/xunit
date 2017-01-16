@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>99.99.99-dev</VersionPrefix>
+    <TargetFramework>net45</TargetFramework>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <AssemblyName>test.xunit.runner.msbuild</AssemblyName>
+    <PackageId>test.xunit.runner.msbuild</PackageId>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalTestAssemblyInfo.cs" Exclude="bin\**;obj\**;**\*.xproj;packages\**" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test.utility\test.utility.csproj" />
+    <ProjectReference Include="..\..\src\xunit.runner.msbuild\xunit.runner.msbuild.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+</Project>

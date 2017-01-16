@@ -1,0 +1,37 @@
+﻿<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>99.99.99-dev</VersionPrefix>
+    <TargetFrameworks>net45;netstandard1.0</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);XUNIT_FRAMEWORK</DefineConstants>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>xunit.execution</AssemblyName>
+    <AssemblyOriginatorKeyFile>../signing.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>xunit.execution</PackageId>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\common\AssemblyExtensions.cs;..\common\CommonTasks.cs;..\common\DictionaryExtensions.cs;..\common\ExceptionExtensions.cs;..\common\ExceptionUtility.cs;..\common\ExecutionHelper.cs;..\common\GlobalAssemblyInfo.cs;..\common\Guard.cs;..\common\LongLivedMarshalByRefObject.cs;..\common\NewReflectionExtensions.cs;..\common\NullMessageSink.cs;..\common\SerializationHelper.cs;..\common\SourceInformation.cs;..\common\TestOptionsNames.cs;..\common\XunitSerializationInfo.cs;..\common\XunitWorkerThread.cs;..\messages\**\*.cs;..\xunit.assert\Asserts\Sdk\ArgumentFormatter.cs;..\xunit.assert\Asserts\Sdk\AssertEqualityComparer.cs;..\xunit.assert\Asserts\Sdk\AssertEqualityComparerAdapter.cs" Exclude="bin\**;obj\**;**\*.xproj;packages\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xunit.core\xunit.core.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <AssemblyName>xunit.execution.desktop</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' ">
+    <DefineConstants>$(DefineConstants);PLATFORM_DOTNET</DefineConstants>
+    <AssemblyName>xunit.execution.dotnet</AssemblyName>
+  </PropertyGroup>
+</Project>

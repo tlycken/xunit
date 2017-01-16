@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>99.99.99-dev</VersionPrefix>
+    <TargetFramework>net45</TargetFramework>
+    <DefineConstants>$(DefineConstants);UNIT_TEST</DefineConstants>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <AssemblyName>test.xunit.runner.utility</AssemblyName>
+    <PackageId>test.xunit.runner.utility</PackageId>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\common\AssemblyExtensions.cs;..\..\src\common\DictionaryExtensions.cs;..\..\src\common\ExecutionHelper.cs;..\..\src\common\Guard.cs;..\..\src\common\NewReflectionExtensions.cs;..\..\src\common\SerializationHelper.cs;..\..\src\common\TestOptionsNames.cs;..\..\src\common\XunitSerializationInfo.cs;..\..\src\xunit.runner.utility\Frameworks\v1\Xunit1ExceptionUtility.cs;..\GlobalTestAssemblyInfo.cs" Exclude="bin\**;obj\**;**\*.xproj;packages\**" />
+    <Content Include="ConfigReader_BadValues.config;ConfigReader_BadValues.json;ConfigReader_Empty.config;ConfigReader_Empty.json;ConfigReader_OverrideValues.config;ConfigReader_OverrideValues.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\test.utility\test.utility.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+</Project>
